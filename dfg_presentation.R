@@ -65,6 +65,8 @@ survey_mids <- cleaned_subset %>%
   mice(seed = 4)
 class(survey_mids)
 
+# TODO: add diagnostics
+
 survey_imputted <- survey_mids %>% 
   complete() %>% 
   mutate(ID = cleaned_survey_data$ID) %>% 
@@ -79,7 +81,7 @@ cleaned_survey_data %>%
   select(ID, Gender, Age, Education, Region, Rural_FSA) %>% 
   summary()
 
-# additional steps: check accuracy, etc.
+# TODO: additional steps: check accuracy, etc.
 # check imputed values distribution vs. sample distribution
 
 # weight the data ---------------------------------------------------------
@@ -133,7 +135,7 @@ weighting_gender <- census_clean %>%
 
 weighting_gender
 
-s# region
+# region
 
 weighting_region <- census_clean %>% 
   filter(PROFILE_ID == "8") %>% 
@@ -303,3 +305,5 @@ survey_wts %>%
   as_survey_design() %>% 
   group_by(Age) %>% 
   summarise(N = survey_total(vartype = "ci"))
+
+
