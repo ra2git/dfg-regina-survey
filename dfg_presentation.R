@@ -64,6 +64,7 @@ table(cleaned_subset$Age, useNA = 'always') / nrow(cleaned_subset)
 survey_mids <- cleaned_subset %>% 
   mice(seed = 4)
 class(survey_mids)
+print(survey_mids)
 
 # TODO: add diagnostics
 
